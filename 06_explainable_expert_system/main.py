@@ -38,7 +38,7 @@ def infer(observations: dict[str, float], rules: list[Rule]) -> tuple[dict[str, 
             updated = combine_cf(previous, support)
             beliefs[rule.conclusion] = updated
             traces.setdefault(rule.conclusion, []).append(
-                f"{rule.name}: {sorted(rule.premises)} (CF={premise_cf:.2f}) × strength {rule.strength:.2f} => +{support:.2f}; combined={updated:.2f}"
+                f"{rule.name}: {sorted(rule.premises)} (CF={premise_cf:.2f}) x strength {rule.strength:.2f} => +{support:.2f}; combined={updated:.2f}"
             )
             fired.add(rule.name)
             changed = True

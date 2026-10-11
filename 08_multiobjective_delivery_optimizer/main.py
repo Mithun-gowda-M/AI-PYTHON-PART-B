@@ -128,7 +128,12 @@ def optimize(depot: Customer, customers: list[Customer], population_size: int = 
             print(f"generation {generation:3}: population={len(population)}")
     scores = [objectives(route, depot, customers) for route in population]
     ranks, _ = rank_population(population, scores)
-    return [(route, score) for route, score, rank in zip(population, scores, ranks) if rank == 0]
+    unique_front = {
+        route: score
+        for route, score, rank in zip(population, scores, ranks)
+        if rank == 0
+    }
+    return list(unique_front.items())
 
 
 def demo() -> None:

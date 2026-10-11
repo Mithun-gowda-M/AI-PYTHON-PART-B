@@ -21,4 +21,10 @@ Run a project from its folder, for example:
 python 01_ao_star_dynamic_routes/main.py
 ```
 
+Run the regression checks from the repository root:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
 These are educational prototypes. Their models, probabilities, utilities, and constraints are illustrative and should be replaced with validated domain data for real deployments.

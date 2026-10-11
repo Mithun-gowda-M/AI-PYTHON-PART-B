@@ -75,7 +75,8 @@ class ConnectFour:
         if monotonic() >= self.deadline:
             raise TimeoutError
         if self.winning(3 - player):
-            return -WIN_SCORE + ply, None
+            winner = 3 - player
+            return (WIN_SCORE - ply if winner == root else -WIN_SCORE + ply), None
         if depth == 0 or all(h == ROWS for h in self.heights):
             return self.evaluate(root), None
         key = self.key(player)
